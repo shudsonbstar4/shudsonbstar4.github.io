@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <title>Angular Todo App</title>
+    <meta charset="UTF-8">
+    <link data-require="bootstrap-css@*" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <nav class="nav navbar navbar-inverse navbar-fixed">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-left">
+            <a href="#" class="navbar-brand">Logo</a>
+          </div>
+  
+          <div class="navbar-right">
+            <form class="navbar-form" role="form">
+              <div class="form-group">
+                <label for="search" class="sr-only">Search</label> <input type="text" id="search" name="search" placeholder="Search now!" class="form-control" ng-model="query" /> <button class="btn btn-default"><i class="glyphicon glyphicon-search"></i> <span class="sr-only">Search now!</span></button>
+              </div>
+            </form>
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <h1>To Do List</h1>
+      </div>
+      <hr />
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Task to do:</th>
+            <th>Date due:</th>
+            <th>Actions:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in items | filter:query">
+            <td class="col-md-7 col-sm-7 col-xs-7">
+              {{item.name}}
+            </td>
+            <td class="col-md-3 col-sm-3 col-xs-3">
+              {{item.date}}
+            </td>
+            <td class="col-md-2 col-sm-2 col-xs-2">
+              <button type="button" class="btn btn-danger" ng-click="deleteItem($index)"><i class="glyphicon glyphicon-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <form class="form form-inline" ng-submit="addItem(item)">
+        <fieldset>
+          <legend>
+            Add new todo item
+          </legend>
+          <div class="form-group">
+            <label class="control-label" for="todo_name">Enter todo:</label>
+            <input type="text" id="todo_name" name="todo_name" class="form-control" ng-model="item.name" />
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="todo_date">Enter date due:</label>
+            <input type="text" id="todo_date" name="todo_date" class="form-control" ng-model="item.date" />
+          </div>
+          <button type="submit" class="btn btn-success">Add Todo</button>
+        </fieldset>
+      </form>
+    </div>
+  
+    <script data-require="angular.js@*" data-semver="1.4.0-rc.1" src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
+    <script src="script.js"></script>
+  </body>
+
+</html>

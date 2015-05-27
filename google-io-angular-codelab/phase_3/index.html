@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <title>Angular Todo App</title>
+    <meta charset="UTF-8" />
+    <link data-require="bootstrap-css@*" data-semver="3.1.1" rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <nav class="nav navbar navbar-inverse navbar-fixed">
+      <div class="container">
+        <div class="row">
+          <div class="navbar-left">
+            <a href="#" class="navbar-brand">Logo</a>
+          </div>
+          <div class="navbar-right">
+            <form class="navbar-form" role="form">
+              <div class="form-group">
+                <label for="search" class="sr-only">Search</label>
+                <input type="text" id="search" name="search" placeholder="Search now!" class="form-control" ng-model="query" />
+                <button class="btn btn-default">
+                  <i class="glyphicon glyphicon-search"></i>
+                  <span class="sr-only">Search now!</span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div ng-view=""></div>
+    </div>
+    <script data-require="angular.js@*" data-semver="1.4.0-rc.1" src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
+    <script data-require="ng-route@*" data-semver="1.2.0" src="http://code.angularjs.org/1.2.0-rc.3/angular-route.js"></script>
+    <script data-require="angular-ui-bootstrap@*" data-semver="0.12.0" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="script.js"></script>
+    <script src="controller.js"></script>
+    <script src="factories.js"></script>
+  </body>
+
+</html>
